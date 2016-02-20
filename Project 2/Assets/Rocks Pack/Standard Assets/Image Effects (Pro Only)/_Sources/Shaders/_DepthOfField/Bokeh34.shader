@@ -47,10 +47,12 @@ SubShader {
 		return o;
 	}
 	
+	
 	half4 frag (v2f i) : COLOR 
 	{
 		half4 color = tex2D (_MainTex, i.uv2.xy);
-		color.rgb *= i.source.rgb;									
+		color.rgb *= i.source.rgb;	
+		color.a *= Luminance(i.source.rgb*0.25);
 		return color;
 	}
 	
@@ -59,8 +61,8 @@ SubShader {
 	Pass {
 		Blend OneMinusDstColor One 
 		ZTest Always Cull Off ZWrite Off
-		ColorMask RGB
-		Fog { Mode off }
+
+				Fog { Mode off }
 
 		CGPROGRAM
 		

@@ -1,9 +1,8 @@
 Shader "Hidden/BlendOneOne" {
 	Properties {
-		_MainTex ("Base (RGB)", 2D) = "" {}
+		_MainTex ("-", 2D) = "" {}
 	}
 	
-	// Shader code pasted into all further CGPROGRAM blocks
 	CGINCLUDE
 
 	#include "UnityCG.cginc"
@@ -14,7 +13,7 @@ Shader "Hidden/BlendOneOne" {
 	};
 		
 	sampler2D _MainTex;
-	float intensity;
+	half _Intensity;
 		
 	v2f vert( appdata_img v ) {
 		v2f o;
@@ -24,14 +23,17 @@ Shader "Hidden/BlendOneOne" {
 	}
 	
 	half4 frag(v2f i) : COLOR {
-		return tex2D(_MainTex, i.uv) * intensity;
+		return tex2D(_MainTex, i.uv) * _Intensity;
 	}
 
 	ENDCG
 	
 Subshader {
- Blend One One
- Pass {
+
+  Pass {
+  		BlendOp Add
+  		Blend One One
+  
 	  ZTest Always Cull Off ZWrite Off
 	  Fog { Mode off }      
 
@@ -45,4 +47,4 @@ Subshader {
 
 Fallback off
 	
-} // shader
+}

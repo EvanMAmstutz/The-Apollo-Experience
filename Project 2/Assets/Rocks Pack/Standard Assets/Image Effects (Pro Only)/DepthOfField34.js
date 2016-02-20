@@ -88,21 +88,38 @@ class DepthOfField34 extends PostEffectsBase {
 			bokehMaterial = CheckShaderAndCreateMaterial (bokehShader, bokehMaterial);
 	}
 	
-	function Start () {
-		CreateMaterials ();
+	function CheckResources () : boolean {		
 		CheckSupport (true);
+	
+		dofBlurMaterial = CheckShaderAndCreateMaterial (dofBlurShader, dofBlurMaterial);
+		dofMaterial = CheckShaderAndCreateMaterial (dofShader,dofMaterial);  
+		bokehSupport = bokehShader.isSupported;  
+				
+		if(bokeh && bokehSupport && bokehShader) 
+			bokehMaterial = CheckShaderAndCreateMaterial (bokehShader, bokehMaterial);
+					
+		if(!isSupported)
+			ReportAutoDisable ();
+		return isSupported;		  
 	}
 
 	function OnDisable () {
 		Quads.Cleanup ();	
+		
+		if (dofBlurMaterial)
+		    DestroyImmediate(dofBlurMaterial);
+		if (dofMaterial)
+		    DestroyImmediate(dofMaterial);
+		if (bokehMaterial)
+		    DestroyImmediate(bokehMaterial);		
 	}
 
 	function OnEnable() {
-		camera.depthTextureMode |= DepthTextureMode.Depth;		
+		GetComponent.<Camera>().depthTextureMode |= DepthTextureMode.Depth;		
 	}
 	
 	function FocalDistance01 (worldDist : float) : float {
-		return camera.WorldToViewportPoint((worldDist-camera.nearClipPlane) * camera.transform.forward + camera.transform.position).z / (camera.farClipPlane-camera.nearClipPlane);	
+		return GetComponent.<Camera>().WorldToViewportPoint((worldDist-GetComponent.<Camera>().nearClipPlane) * GetComponent.<Camera>().transform.forward + GetComponent.<Camera>().transform.position).z / (GetComponent.<Camera>().farClipPlane-GetComponent.<Camera>().nearClipPlane);	
 	}
 	
 	function GetDividerBasedOnQuality () {
@@ -131,10 +148,13 @@ class DepthOfField34 extends PostEffectsBase {
 	private var bokehSource2 : RenderTexture = null;
 	
 	function OnRenderImage (source : RenderTexture, destination : RenderTexture) {	
-		CreateMaterials ();		
+		if(CheckResources()==false) {
+			Graphics.Blit (source, destination);
+			return;
+		}	
 		
-		if (smoothness < 0.0f)
-			smoothness = 0.0f;
+		if (smoothness < 0.1f)
+			smoothness = 0.1f;
 		
 		// update needed focal & rt size parameter
 		
@@ -142,18 +162,18 @@ class DepthOfField34 extends PostEffectsBase {
 		var bokehBlurAmplifier : float = bokeh ? BOKEH_EXTRA_BLUR : 1.0f;
 
 		var blurForeground : boolean = quality > Dof34QualitySetting.OnlyBackground;	
-		var focal01Size : float = focalSize / (camera.farClipPlane - camera.nearClipPlane);;
+		var focal01Size : float = focalSize / (GetComponent.<Camera>().farClipPlane - GetComponent.<Camera>().nearClipPlane);;
 
 		if (simpleTweakMode) {		
-			focalDistance01 = objectFocus ? (camera.WorldToViewportPoint (objectFocus.position)).z / (camera.farClipPlane) : FocalDistance01 (focalPoint);
+			focalDistance01 = objectFocus ? (GetComponent.<Camera>().WorldToViewportPoint (objectFocus.position)).z / (GetComponent.<Camera>().farClipPlane) : FocalDistance01 (focalPoint);
 			focalStartCurve = focalDistance01 * smoothness;
 			focalEndCurve = focalStartCurve;
-			blurForeground = blurForeground && (focalPoint > (camera.nearClipPlane + Mathf.Epsilon));
+			blurForeground = blurForeground && (focalPoint > (GetComponent.<Camera>().nearClipPlane + Mathf.Epsilon));
 		} 
 		else {
 			if(objectFocus) {
-				var vpPoint = camera.WorldToViewportPoint (objectFocus.position);
-				vpPoint.z = (vpPoint.z) / (camera.farClipPlane);
+				var vpPoint = GetComponent.<Camera>().WorldToViewportPoint (objectFocus.position);
+				vpPoint.z = (vpPoint.z) / (GetComponent.<Camera>().farClipPlane);
 				focalDistance01 = vpPoint.z;			
 			} 
 			else 
@@ -161,7 +181,7 @@ class DepthOfField34 extends PostEffectsBase {
 			
 			focalStartCurve = focalZStartCurve;
 			focalEndCurve = focalZEndCurve;
-			blurForeground = blurForeground && (focalPoint > (camera.nearClipPlane + Mathf.Epsilon));				
+			blurForeground = blurForeground && (focalPoint > (GetComponent.<Camera>().nearClipPlane + Mathf.Epsilon));				
 		}
 		
 		widthOverHeight = (1.0f * source.width) / (1.0f * source.height);
@@ -177,7 +197,7 @@ class DepthOfField34 extends PostEffectsBase {
         AllocateTextures (blurForeground, source, divider, lowTexDivider);
 
 		// WRITE COC to alpha channel		
-		// source is being bound to detect of we have to invert v texcoords	
+		// source is only being bound to detect y texcoord flip
 		Graphics.Blit (source, source, dofMaterial, 3); 
 				
 	    // better DOWNSAMPLE (could actually be weighted for higher quality)
@@ -195,7 +215,9 @@ class DepthOfField34 extends PostEffectsBase {
 			Graphics.Blit (mediumRezWorkTexture, bokehSource2, dofMaterial, 11);	
 						
 			// remove those parts (maybe even a little tittle bittle more) from the regurlarly blurred buffer		
-			Graphics.Blit (mediumRezWorkTexture, lowRezWorkTexture, dofMaterial, 10);
+			//Graphics.Blit (mediumRezWorkTexture, lowRezWorkTexture, dofMaterial, 10);
+			Graphics.Blit (mediumRezWorkTexture, lowRezWorkTexture);//, dofMaterial, 10);
+			
 			// maybe you want to reblur the small blur ... but not really needed.
 			//Blur (mediumRezWorkTexture, mediumRezWorkTexture, DofBlurriness.Low, 4, maxBlurSpread);						
 			
@@ -242,7 +264,8 @@ class DepthOfField34 extends PostEffectsBase {
 				Graphics.Blit (mediumRezWorkTexture, bokehSource2, dofMaterial, 11);	
 				
 				// remove the parts (maybe even a little tittle bittle more) that will end up in bokeh space			
-				Graphics.Blit (mediumRezWorkTexture, lowRezWorkTexture, dofMaterial, 10);
+				//Graphics.Blit (mediumRezWorkTexture, lowRezWorkTexture, dofMaterial, 10);
+				Graphics.Blit (mediumRezWorkTexture, lowRezWorkTexture);//, dofMaterial, 10);
 				
 				// big BLUR		
 				BlurFg (lowRezWorkTexture, lowRezWorkTexture, bluriness, 1, maxBlurSpread * bokehBlurAmplifier);				
@@ -326,7 +349,7 @@ class DepthOfField34 extends PostEffectsBase {
 
 	function AddBokeh (bokehInfo : RenderTexture, tempTex : RenderTexture, finalTarget : RenderTexture) {
 		if (bokehMaterial) {
-			var meshes : Mesh[] = Quads.GetMeshes (tempTex.width, tempTex.height);				
+			var meshes : Mesh[] = Quads.GetMeshes (tempTex.width, tempTex.height);	// quads: exchanging more triangles with less overdraw			
 			    
 			RenderTexture.active = tempTex;
         	GL.Clear (false, true, Color (0.0f, 0.0f, 0.0f, 0.0f));	    
@@ -334,12 +357,10 @@ class DepthOfField34 extends PostEffectsBase {
 			GL.PushMatrix ();
 			GL.LoadIdentity ();			
 			
-			// important, otherwise we get bokeh shape & size artefacts
+			// point filter mode is important, otherwise we get bokeh shape & size artefacts
 			bokehInfo.filterMode = FilterMode.Point;
 
-			var arW : float = (bokehInfo.width * 1.0f) / (bokehInfo.height * 1.0f);
-			//var sc : float = BOKEH_EXTRA_BLUR / bokehInfo.height + bokehScale * maxBlurSpread * BOKEH_EXTRA_BLUR * oneOverBaseSize;
-			
+			var arW : float = (bokehInfo.width * 1.0f) / (bokehInfo.height * 1.0f);			
 			var sc : float = 2.0f / (1.0f * bokehInfo.width);
 			sc += bokehScale * maxBlurSpread * BOKEH_EXTRA_BLUR * oneOverBaseSize;
 			
@@ -381,15 +402,15 @@ class DepthOfField34 extends PostEffectsBase {
 		bokehSource = null;
 		bokehSource2 = null;
  		if (bokeh) {
-        	bokehSource  = RenderTexture.GetTemporary (source.width / (lowTexDivider * bokehDownsample), source.height / (lowTexDivider * bokehDownsample), 0); 
-        	bokehSource2  = RenderTexture.GetTemporary (source.width / (lowTexDivider * bokehDownsample), source.height / (lowTexDivider * bokehDownsample), 0);
+        	bokehSource  = RenderTexture.GetTemporary (source.width / (lowTexDivider * bokehDownsample), source.height / (lowTexDivider * bokehDownsample), 0, RenderTextureFormat.ARGBHalf); 
+        	bokehSource2  = RenderTexture.GetTemporary (source.width / (lowTexDivider * bokehDownsample), source.height / (lowTexDivider * bokehDownsample), 0,  RenderTextureFormat.ARGBHalf);
         	bokehSource.filterMode = FilterMode.Bilinear;
         	bokehSource2.filterMode = FilterMode.Bilinear;
         	RenderTexture.active = bokehSource2;
         	GL.Clear (false, true, Color(0.0f, 0.0f, 0.0f, 0.0f));   	        	        	
  		}    
         
-        // just to make sure: always use bilinear filter setting
+        // to make sure: always use bilinear filter setting
         
         source.filterMode = FilterMode.Bilinear;
         finalDefocus.filterMode = FilterMode.Bilinear;

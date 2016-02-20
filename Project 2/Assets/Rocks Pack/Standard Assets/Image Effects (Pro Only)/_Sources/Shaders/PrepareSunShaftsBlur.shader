@@ -33,7 +33,7 @@ Shader "Hidden/PrepareSunShaftsBlur" {
 	}
 	
 	half4 frag (v2f i) : COLOR {
-		float depthSample = tex2D (_CameraDepthTexture, i.uv.xy).x;
+		float depthSample = UNITY_SAMPLE_DEPTH( tex2D (_CameraDepthTexture, i.uv.xy) );
 		half4 tex = tex2D (_MainTex, i.uv.xy);
 		
 		depthSample = Linear01Depth (depthSample);

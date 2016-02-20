@@ -17,19 +17,30 @@ class ContrastEnhance extends PostEffectsBase {
 	public var separableBlurShader : Shader = null;
 	public var contrastCompositeShader : Shader = null;
 
-	function CreateMaterials () {
+    function OnDisable()
+    {
+		if (contrastCompositeMaterial)
+		    DestroyImmediate(contrastCompositeMaterial);
+		if (separableBlurMaterial)
+		    DestroyImmediate(separableBlurMaterial);
+    }
+	function CheckResources () : boolean {	
+		CheckSupport (false);
+		
 		contrastCompositeMaterial = CheckShaderAndCreateMaterial (contrastCompositeShader, contrastCompositeMaterial);
 		separableBlurMaterial = CheckShaderAndCreateMaterial (separableBlurShader, separableBlurMaterial);
-	}
-	
-	function Start () {
-		CreateMaterials ();
-		CheckSupport (false); 
+		
+		if(!isSupported)
+			ReportAutoDisable ();
+		return isSupported;		
 	}
 	
 	function OnRenderImage (source : RenderTexture, destination : RenderTexture) {	
-		CreateMaterials ();
-		
+		if(CheckResources()==false) {
+			Graphics.Blit (source, destination);
+			return;
+		}
+				
 		var halfRezColor : RenderTexture = RenderTexture.GetTemporary (source.width / 2.0, source.height / 2.0, 0);	
 		var quarterRezColor : RenderTexture = RenderTexture.GetTemporary (source.width / 4.0, source.height / 4.0, 0);	
 		var secondQuarterRezColor : RenderTexture = RenderTexture.GetTemporary (source.width / 4.0, source.height / 4.0, 0);	

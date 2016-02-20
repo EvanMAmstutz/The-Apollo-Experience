@@ -27,22 +27,27 @@ class TiltShift extends PostEffectsBase {
 	private var end01 : float = 1.0f;
 	private var curve : float = 1.0f;
 		
-	function CreateMaterials () {
+	function OnDisable()
+	{
+        if (tiltShiftMaterial)
+            DestroyImmediate(tiltShiftMaterial);
+	}
+	function CheckResources () : boolean {	
+		CheckSupport (true);	
+	
 		tiltShiftMaterial = CheckShaderAndCreateMaterial (tiltShiftShader, tiltShiftMaterial);
-	}
-	
-	function Start () {
-		CreateMaterials ();
-		CheckSupport (true);
-	}
-	
-	function OnEnable() {
-		camera.depthTextureMode |= DepthTextureMode.Depth;	
-	}
-
-	function OnRenderImage (source : RenderTexture, destination : RenderTexture) {	
-		CreateMaterials ();
 		
+		if(!isSupported)
+			ReportAutoDisable ();
+		return isSupported;				
+	}
+	
+	function OnRenderImage (source : RenderTexture, destination : RenderTexture) {	
+		if(CheckResources()==false) {
+			Graphics.Blit (source, destination);
+			return;
+		}
+				
 		var widthOverHeight : float = (1.0f * source.width) / (1.0f * source.height);
 		var oneOverBaseSize : float = 1.0f / 512.0f;		
 
@@ -55,7 +60,7 @@ class TiltShift extends PostEffectsBase {
 		
 		// automagically calculate parameters based on focalPoint
 
-		var focalPoint01 : float = camera.WorldToViewportPoint (focalPoint * camera.transform.forward + camera.transform.position).z / (camera.farClipPlane);	
+		var focalPoint01 : float = GetComponent.<Camera>().WorldToViewportPoint (focalPoint * GetComponent.<Camera>().transform.forward + GetComponent.<Camera>().transform.position).z / (GetComponent.<Camera>().farClipPlane);	
 	
 		distance01 = focalPoint01;
 		start01 = 0.0;

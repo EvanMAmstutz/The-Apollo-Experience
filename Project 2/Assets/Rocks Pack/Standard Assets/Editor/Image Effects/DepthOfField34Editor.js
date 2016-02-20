@@ -81,13 +81,13 @@ class DepthOfField34Editor extends Editor
     	if (!go)
     		return;
     		
-    	if (!go.camera)
+    	if (!go.GetComponent.<Camera>())
     		return;
     		    		
     	if (simpleTweakMode.boolValue)
-    		GUILayout.Label ("Current: "+go.camera.name+", near "+go.camera.nearClipPlane+", far: "+go.camera.farClipPlane+", focal: "+focalPoint.floatValue, EditorStyles.miniBoldLabel);
+    		GUILayout.Label ("Current: "+go.GetComponent.<Camera>().name+", near "+go.GetComponent.<Camera>().nearClipPlane+", far: "+go.GetComponent.<Camera>().farClipPlane+", focal: "+focalPoint.floatValue, EditorStyles.miniBoldLabel);
     	else
-    		GUILayout.Label ("Current: "+go.camera.name+", near "+go.camera.nearClipPlane+", far: "+go.camera.farClipPlane+", focal: "+focalZDistance.floatValue, EditorStyles.miniBoldLabel);
+    		GUILayout.Label ("Current: "+go.GetComponent.<Camera>().name+", near "+go.GetComponent.<Camera>().nearClipPlane+", far: "+go.GetComponent.<Camera>().farClipPlane+", focal: "+focalZDistance.floatValue, EditorStyles.miniBoldLabel);
     	    	
    		EditorGUILayout.PropertyField (resolution, new GUIContent("Resolution"));
    		EditorGUILayout.PropertyField (quality, new GUIContent("Quality"));
@@ -100,26 +100,24 @@ class DepthOfField34Editor extends Editor
    		EditorGUILayout.Separator ();
 
     	GUILayout.Label ("Focal Settings", EditorStyles.boldLabel);    	
-		GUILayout.Label ("Fixed z-distance or follow an in-game transform", EditorStyles.miniBoldLabel);
     	
     	if (simpleTweakMode.boolValue) {
-   			focalPoint.floatValue = EditorGUILayout.Slider ("Focal distance", focalPoint.floatValue, go.camera.nearClipPlane, go.camera.farClipPlane);
+   			focalPoint.floatValue = EditorGUILayout.Slider ("Focal distance", focalPoint.floatValue, go.GetComponent.<Camera>().nearClipPlane, go.GetComponent.<Camera>().farClipPlane);
 			EditorGUILayout.PropertyField (objectFocus, new GUIContent("Transform"));
    			EditorGUILayout.PropertyField (smoothness, new GUIContent("Smoothness"));
-   			focalSize.floatValue = EditorGUILayout.Slider ("Focal size", focalSize.floatValue, 0.0f, (go.camera.farClipPlane - go.camera.nearClipPlane));  
+   			focalSize.floatValue = EditorGUILayout.Slider ("Focal size", focalSize.floatValue, 0.0f, (go.GetComponent.<Camera>().farClipPlane - go.GetComponent.<Camera>().nearClipPlane));  
     	}
     	else {
-			focalZDistance.floatValue = EditorGUILayout.Slider ("Distance", focalZDistance.floatValue, go.camera.nearClipPlane, go.camera.farClipPlane);  
+			focalZDistance.floatValue = EditorGUILayout.Slider ("Distance", focalZDistance.floatValue, go.GetComponent.<Camera>().nearClipPlane, go.GetComponent.<Camera>().farClipPlane);  
 			EditorGUILayout.PropertyField (objectFocus, new GUIContent("Transform"));			
-			focalSize.floatValue = EditorGUILayout.Slider ("Size", focalSize.floatValue, 0.0f, (go.camera.farClipPlane - go.camera.nearClipPlane));   
+			focalSize.floatValue = EditorGUILayout.Slider ("Size", focalSize.floatValue, 0.0f, (go.GetComponent.<Camera>().farClipPlane - go.GetComponent.<Camera>().nearClipPlane));   
 			focalStartCurve.floatValue = EditorGUILayout.Slider ("Start curve", focalStartCurve.floatValue, 0.05f, 20.0f);  
 			focalEndCurve.floatValue = EditorGUILayout.Slider ("End curve", focalEndCurve.floatValue, 0.05f, 20.0f);  
     	}
     	    	
    		EditorGUILayout.Separator ();
    		
-   		GUILayout.Label ("Blur", EditorStyles.boldLabel);  
-   		GUILayout.Label ("Foreground and background defocus", EditorStyles.miniBoldLabel);
+   		GUILayout.Label ("Blur (Fore- and Background)", EditorStyles.boldLabel);  
 		EditorGUILayout.PropertyField (bluriness, new GUIContent("Blurriness"));
    		EditorGUILayout.PropertyField (maxBlurSpread, new GUIContent("Blur spread"));
 						
@@ -137,7 +135,7 @@ class DepthOfField34Editor extends Editor
     		bokehThreshholdLuminance.floatValue = EditorGUILayout.Slider ("Min luminance", bokehThreshholdLuminance.floatValue, 0.0f, 0.99f);  
     		bokehThreshholdContrast.floatValue = EditorGUILayout.Slider ("Min contrast", bokehThreshholdContrast.floatValue, 0.0f, 0.25f);  
     		bokehDownsample.intValue = EditorGUILayout.IntSlider ("Downsample", bokehDownsample.intValue, 1, 3);  
-    		bokehScale.floatValue = EditorGUILayout.Slider ("Size scale", bokehScale.floatValue, 0.0f, 10.0f);     	
+    		bokehScale.floatValue = EditorGUILayout.Slider ("Size scale", bokehScale.floatValue, 0.0f, 20.0f);     	
     		EditorGUILayout.PropertyField (bokehTexture , new GUIContent("Texture mask"));	
     	}		
     	    	

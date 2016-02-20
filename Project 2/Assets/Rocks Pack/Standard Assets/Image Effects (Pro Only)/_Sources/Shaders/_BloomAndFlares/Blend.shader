@@ -28,10 +28,10 @@ Shader "Hidden/Blend" {
 		v2f o;
 		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 		o.uv[0] =  v.texcoord.xy;
-		
 		o.uv[1] =  v.texcoord.xy;
-		#if SHADER_API_D3D9
-		if (_ColorBuffer_TexelSize.y < 0)
+		
+		#if SHADER_API_D3D9 || SHADER_API_XBOX360 || SHADER_API_D3D11
+		if (_ColorBuffer_TexelSize.y < 0) 
 			o.uv[1].y = 1-o.uv[1].y;
 		#endif	
 		
@@ -57,6 +57,10 @@ Shader "Hidden/Blend" {
 		return tex2D(_MainTex, i.uv[0].xy) * _Intensity + tex2D(_ColorBuffer, i.uv[1]);
 	}
 
+	half4 fragVignetteBlend (v2f i) : COLOR {
+		return tex2D(_MainTex, i.uv[0].xy) * tex2D(_ColorBuffer, i.uv[0]);
+	}
+	
 	half4 fragMultiTap (v2f_mt i) : COLOR {
 		half4 outColor = tex2D(_MainTex, i.uv[0].xy);
 		outColor += tex2D(_MainTex, i.uv[1].xy);
@@ -70,7 +74,8 @@ Shader "Hidden/Blend" {
 Subshader {
 	  ZTest Always Cull Off ZWrite Off
 	  Fog { Mode off }  
-	  	
+
+ // 0: nicer & softer "screen" blend mode	  		  	
  Pass {    
 
       CGPROGRAM
@@ -80,6 +85,7 @@ Subshader {
       ENDCG
   }
 
+ // 1: simple "add" blend mode
  Pass {    
 
       CGPROGRAM
@@ -88,13 +94,22 @@ Subshader {
       #pragma fragment fragAdd
       ENDCG
   }
-
+ // 2: used for "stable" downsampling
  Pass {    
 
       CGPROGRAM
       #pragma fragmentoption ARB_precision_hint_fastest
       #pragma vertex vertMultiTap
       #pragma fragment fragMultiTap
+      ENDCG
+  } 
+ // 3: vignette blending
+ Pass {    
+
+      CGPROGRAM
+      #pragma fragmentoption ARB_precision_hint_fastest
+      #pragma vertex vert
+      #pragma fragment fragVignetteBlend
       ENDCG
   } 
 }

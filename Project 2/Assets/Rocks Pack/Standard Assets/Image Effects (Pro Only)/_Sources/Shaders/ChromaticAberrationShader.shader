@@ -22,7 +22,7 @@ Shader "Hidden/ChromaticAberrationShader" {
 		v2f o;
 		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 		
-		#ifdef SHADER_API_D3D9
+		#if SHADER_API_D3D9 || SHADER_API_D3D11 || SHADER_API_XBOX360
 		if (_MainTex_TexelSize.y < 0)
 			 v.texcoord.y = 1.0 - v.texcoord.y ;
 		#endif

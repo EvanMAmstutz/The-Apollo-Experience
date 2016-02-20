@@ -79,7 +79,7 @@ Shader "Hidden/MultipassHollywoodFlares" {
 		color += tex2D (_MainTex, i.uv[4]);
 		color += tex2D (_MainTex, i.uv[5]);
 		color += tex2D (_MainTex, i.uv[6]);
-		return saturate(color / 7.0 - _Threshhold.x) * _Threshhold.y * tintColor;
+		return max(color / 7.0 - _Threshhold.x, 0.0) * _Threshhold.y * tintColor;
 	}
 
 	half4 fragStretch (v2f_opts i) : COLOR {

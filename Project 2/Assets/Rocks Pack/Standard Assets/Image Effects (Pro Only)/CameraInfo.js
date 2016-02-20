@@ -14,7 +14,7 @@ class CameraInfo extends MonoBehaviour {
 	// render path
 	public var currentRenderPath : RenderingPath;
 	// number of official image fx used
-	public var currentPostFxCount : int = 0;
+	public var recognizedPostFxCount : int = 0;
 	
 #if UNITY_EDITOR	
 	function Start () {
@@ -22,23 +22,23 @@ class CameraInfo extends MonoBehaviour {
 	}
 
 	function Update () {
-		if (currentDepthMode != camera.depthTextureMode)
-			camera.depthTextureMode = currentDepthMode;
-		if (currentRenderPath != camera.actualRenderingPath)
-			camera.renderingPath = currentRenderPath;
+		if (currentDepthMode != GetComponent.<Camera>().depthTextureMode)
+			GetComponent.<Camera>().depthTextureMode = currentDepthMode;
+		if (currentRenderPath != GetComponent.<Camera>().actualRenderingPath)
+			GetComponent.<Camera>().renderingPath = currentRenderPath;
 			
 		UpdateInfo ();
 	}
 	
 	function UpdateInfo () {
-		currentDepthMode = camera.depthTextureMode;
-		currentRenderPath = camera.actualRenderingPath;
+		currentDepthMode = GetComponent.<Camera>().depthTextureMode;
+		currentRenderPath = GetComponent.<Camera>().actualRenderingPath;
 		var fx : PostEffectsBase[] = gameObject.GetComponents.<PostEffectsBase> ();
 		var fxCount : int = 0;
 		for (var post : PostEffectsBase in fx) 
 			if (post.enabled)
 				fxCount++;
-		currentPostFxCount = fxCount;		
+		recognizedPostFxCount = fxCount;		
 	}
 #endif
 }

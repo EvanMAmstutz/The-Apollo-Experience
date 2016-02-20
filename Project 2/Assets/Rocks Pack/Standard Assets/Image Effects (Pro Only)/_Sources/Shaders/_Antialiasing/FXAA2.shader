@@ -9,7 +9,7 @@ SubShader {
 		Fog { Mode off }
 
 CGPROGRAM
-#pragma vertex vert
+#pragma vertex vert 
 #pragma fragment frag
 #include "UnityCG.cginc"
 #pragma target 3.0

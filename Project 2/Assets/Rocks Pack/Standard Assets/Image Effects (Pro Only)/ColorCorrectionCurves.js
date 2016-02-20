@@ -45,25 +45,41 @@ class ColorCorrectionCurves extends PostEffectsBase
 	private var updateTexturesOnStartup : boolean = true;
 		
 	function Start () {
-		CheckSupport (true);
+		super ();
 		updateTexturesOnStartup = true;
 	}
 	
-	function Awake () {
-		
+	function Awake () {	}
+	
+	function OnDisable()
+	{
+		if (ccMaterial)
+		    DestroyImmediate(ccMaterial);
+		if (ccDepthMaterial)
+		    DestroyImmediate(ccDepthMaterial);
+		if (selectiveCcMaterial)
+		    DestroyImmediate(selectiveCcMaterial);
+		if (rgbChannelTex)
+			DestroyImmediate(rgbChannelTex); 
+		if (rgbDepthChannelTex)
+			DestroyImmediate(rgbDepthChannelTex);
+		if (zCurveTex)
+		    DestroyImmediate(zCurveTex);
 	}
 	
-	function CreateMaterials () {
+	function CheckResources () : boolean {		
+		CheckSupport (mode == ColorCorrectionMode.Advanced);
+	
 		ccMaterial = CheckShaderAndCreateMaterial (simpleColorCorrectionCurvesShader, ccMaterial);
 		ccDepthMaterial = CheckShaderAndCreateMaterial (colorCorrectionCurvesShader, ccDepthMaterial);
 		selectiveCcMaterial = CheckShaderAndCreateMaterial (colorCorrectionSelectiveShader, selectiveCcMaterial);
 		
 		if (!rgbChannelTex)
-			 rgbChannelTex = new Texture2D (256, 4, TextureFormat.ARGB32, false);
+			 rgbChannelTex = new Texture2D (256, 4, TextureFormat.ARGB32, false, true); 
 		if (!rgbDepthChannelTex)
-			 rgbDepthChannelTex = new Texture2D (256, 4, TextureFormat.ARGB32, false);
+			 rgbDepthChannelTex = new Texture2D (256, 4, TextureFormat.ARGB32, false, true);
 		if (!zCurveTex)
-			 zCurveTex = new Texture2D (256, 1, TextureFormat.ARGB32, false);
+			 zCurveTex = new Texture2D (256, 1, TextureFormat.ARGB32, false, true);
 			 
 		rgbChannelTex.hideFlags = HideFlags.DontSave;
 		rgbDepthChannelTex.hideFlags = HideFlags.DontSave;
@@ -71,13 +87,12 @@ class ColorCorrectionCurves extends PostEffectsBase
 			
 		rgbChannelTex.wrapMode = TextureWrapMode.Clamp;
 		rgbDepthChannelTex.wrapMode = TextureWrapMode.Clamp;
-		zCurveTex.wrapMode = TextureWrapMode.Clamp;				
-	}
-	
-	function OnEnable () {
-		if(useDepthCorrection)
-			camera.depthTextureMode |= DepthTextureMode.Depth;	
-	}
+		zCurveTex.wrapMode = TextureWrapMode.Clamp;	
+					
+		if(!isSupported)
+			ReportAutoDisable ();
+		return isSupported;		  
+	}	
 	
 	public function UpdateParameters () 
 	{			
@@ -115,7 +130,10 @@ class ColorCorrectionCurves extends PostEffectsBase
 	}
 	
 	function OnRenderImage (source : RenderTexture, destination : RenderTexture) {
-		CreateMaterials ();
+		if(CheckResources()==false) {
+			Graphics.Blit (source, destination);
+			return;
+		}
 		
 		if (updateTexturesOnStartup) {
 			UpdateParameters ();
@@ -123,7 +141,7 @@ class ColorCorrectionCurves extends PostEffectsBase
 		}
 		
 		if (useDepthCorrection)
-			camera.depthTextureMode |= DepthTextureMode.Depth;			
+			GetComponent.<Camera>().depthTextureMode |= DepthTextureMode.Depth;			
 		
 		var renderTarget2Use : RenderTexture = destination;
 		

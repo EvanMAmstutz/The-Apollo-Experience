@@ -63,7 +63,7 @@ Shader "Hidden/ColorCorrectionCurves" {
 		half3 green = tex2D(_RgbTex, half2(color.g, ycoords.y)).rgb * half3(0,1,0);
 		half3 blue = tex2D(_RgbTex, half2(color.b, ycoords.z)).rgb * half3(0,0,1);
 		
-		half theDepth = tex2D (_CameraDepthTexture, i.uv2);
+		half theDepth = UNITY_SAMPLE_DEPTH( tex2D (_CameraDepthTexture, i.uv2) );
 		half zval = tex2D(_ZCurve, half2( Linear01Depth (theDepth), 0.5));
 		
 		half3 depthRed = tex2D(_RgbDepthTex, half2(color.r, ycoords.x)).rgb * half3(1,0,0);

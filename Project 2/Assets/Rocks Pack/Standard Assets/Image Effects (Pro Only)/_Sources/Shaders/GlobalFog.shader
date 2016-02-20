@@ -51,14 +51,14 @@ CGINCLUDE
 	float ComputeFogForYAndDistance (in float3 camDir, in float3 wsPos) 
 	{
 		float fogInt = saturate(length(camDir) * _StartDistance.x-1.0) * _StartDistance.y;	
-		float fogVert = (_Y.x-wsPos.y) * _Y.y;
+		float fogVert = max(0.0, (wsPos.y-_Y.x) * _Y.y);
 		fogVert *= fogVert; 
 		return  (1-exp(-_GlobalDensity*fogInt)) * exp (-fogVert);
 	}
 	
 	half4 fragAbsoluteYAndDistance (v2f i) : COLOR
 	{
-		float dpth = Linear01Depth (tex2D(_CameraDepthTexture,i.uv).x);
+		float dpth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,i.uv)));
 		float4 wsDir = dpth * i.interpolatedRay;
 		float4 wsPos = _CameraWS + wsDir;
 		return lerp(tex2D(_MainTex, i.uv), _FogColor, ComputeFogForYAndDistance(wsDir.xyz,wsPos.xyz));
@@ -66,16 +66,16 @@ CGINCLUDE
 
 	half4 fragRelativeYAndDistance (v2f i) : COLOR
 	{
-		float dpth = Linear01Depth (tex2D(_CameraDepthTexture,i.uv).x);
+		float dpth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,i.uv)));
 		float4 wsDir = dpth * i.interpolatedRay;
 		return lerp(tex2D(_MainTex, i.uv), _FogColor, ComputeFogForYAndDistance(wsDir.xyz, wsDir.xyz));
 	}
 
 	half4 fragAbsoluteY (v2f i) : COLOR
 	{
-		float dpth = Linear01Depth (tex2D (_CameraDepthTexture, i.uv).x);
+		float dpth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,i.uv)));
 		float4 wsPos = (_CameraWS + dpth * i.interpolatedRay);
-		float fogVert = (_Y.x-wsPos.y) * _Y.y;
+		float fogVert = max(0.0, (wsPos.y-_Y.x) * _Y.y);
 		fogVert *= fogVert; 
 		fogVert = (exp (-fogVert));
 		return lerp(tex2D( _MainTex, i.uv ), _FogColor, fogVert);				
@@ -83,7 +83,7 @@ CGINCLUDE
 
 	half4 fragDistance (v2f i) : COLOR
 	{
-		float dpth = Linear01Depth (tex2D (_CameraDepthTexture, i.uv).x);		
+		float dpth = Linear01Depth(UNITY_SAMPLE_DEPTH(tex2D(_CameraDepthTexture,i.uv)));		
 		float4 camDir = ( /*_CameraWS  + */ dpth * i.interpolatedRay);
 		float fogInt = saturate(length( camDir ) * _StartDistance.x - 1.0) * _StartDistance.y;	
 		return lerp(_FogColor, tex2D(_MainTex, i.uv), exp(-_GlobalDensity*fogInt));				
