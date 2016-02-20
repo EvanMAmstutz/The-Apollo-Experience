@@ -1,0 +1,551 @@
+fileFormatVersion: 2
+guid: dfe3002b20ab7476fb5ec2e9540f877f
+timeCreated: 1455470809
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000ad000000ae000000af000000b0000000b1000000b2000000b3000000b4000000b5000000b6000000b7000000b8000000b9000000ba000000bb000000bc000000bd000000be000000bf000000c0000000c1000000c2000000c3000000c4000000c5000000c6000000c7000000c8000000c9000000ca000000cb000000cc000000cd000000ce000000cf000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 91886cfcde86231aeead7a3dc9bb768a
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -19.616173, y: 0.14711063, z: -9.471149}
+      lookAt: {x: -20.28968, y: -0.47144118, z: -20.082823}
+      up: {x: -0.003678513, y: 0.99831223, z: -0.057957914}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes:
+    - camera:
+        position: {x: -19.617, y: 0.16699184, z: -9.472256}
+        lookAt: {x: -20.290508, y: -0.45156, z: -20.083927}
+        up: {x: -0.003678513, y: 0.99831223, z: -0.057957914}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Scene 1
+    - camera:
+        position: {x: -19.574703, y: 0.39269033, z: -5.3890276}
+        lookAt: {x: -20.063433, y: -0.05616086, z: -13.089372}
+        up: {x: -0.003678513, y: 0.99831223, z: -0.057957914}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Scene 2
+    - camera:
+        position: {x: -23.827059, y: 0.9662236, z: -28.61488}
+        lookAt: {x: -23.112617, y: 1.6254046, z: -20.947372}
+        up: {x: -0.007912686, y: 0.99635637, z: -0.08492017}
+        fov: 35
+        aspectRatio: 0
+        orthoSize: 1
+        isPerspective: 1
+      name: Scene 3
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Altimeter Generic
+    100002: angle ofattack gauge generic
+    100004: Component#1
+    100006: Component#1 1
+    100008: Component#1 2
+    100010: Component#1 3
+    100012: Component#1 4
+    100014: Component#1 5
+    100016: Component#2
+    100018: Component#2 1
+    100020: Component#2 2
+    100022: Component#2 3
+    100024: Component#2 4
+    100026: Component#2 5
+    100028: Component#5
+    100030: Component#5 1
+    100032: Component#5 2
+    100034: Component#6
+    100036: Component#6 1
+    100038: Component#6 2
+    100040: Component#6 3
+    100042: Component#6 4
+    100044: Component#6 5
+    100046: Display 1
+    100048: Group 1
+    100050: Group 10
+    100052: Group 101
+    100054: Group 103
+    100056: Group 105
+    100058: Group 110
+    100060: Group 112
+    100062: Group 114
+    100064: Group 116
+    100066: Group 118
+    100068: Group 12
+    100070: Group 120
+    100072: Group 122
+    100074: Group 125
+    100076: Group 127
+    100078: Group 129
+    100080: Group 131
+    100082: Group 136
+    100084: Group 138
+    100086: Group 14
+    100088: Group 140
+    100090: Group 142
+    100092: Group 145
+    100094: Group 147
+    100096: Group 149
+    100098: Group 151
+    100100: Group 153
+    100102: Group 155
+    100104: Group 157
+    100106: Group 159
+    100108: Group 16
+    100110: Group 162
+    100112: Group 164
+    100114: Group 166
+    100116: Group 168
+    100118: Group 173
+    100120: Group 175
+    100122: Group 177
+    100124: Group 179
+    100126: Group 18
+    100128: Group 181
+    100130: Group 183
+    100132: Group 185
+    100134: Group 188
+    100136: Group 190
+    100138: Group 192
+    100140: Group 194
+    100142: Group 199
+    100144: Group 2
+    100146: Group 201
+    100148: Group 203
+    100150: Group 205
+    100152: Group 21
+    100154: Group 23
+    100156: Group 25
+    100158: Group 27
+    100160: Group 32
+    100162: Group 34
+    100164: Group 36
+    100166: Group 38
+    100168: Group 4
+    100170: Group 40
+    100172: Group 42
+    100174: Group 44
+    100176: Group 47
+    100178: Group 49
+    100180: Group 51
+    100182: Group 53
+    100184: Group 58
+    100186: Group 6
+    100188: Group 60
+    100190: Group 62
+    100192: Group 64
+    100194: Group 73
+    100196: Group 8
+    100198: Group 82
+    100200: Group 84
+    100202: Group 86
+    100204: Group 88
+    100206: Group 90
+    100208: Group 92
+    100210: Group 94
+    100212: Group 96
+    100214: Group 99
+    100216: Group#21
+    100218: Group#21 1
+    100220: Group#21 2
+    100222: Heavy_Viper_concept
+    100224: SimpleDome02
+    100226: ske8C
+    100228: ske8C 1
+    100230: ske8C 2
+    100232: //RootNode
+    400000: Altimeter Generic
+    400002: angle ofattack gauge generic
+    400004: Component#1
+    400006: Component#1 1
+    400008: Component#1 2
+    400010: Component#1 3
+    400012: Component#1 4
+    400014: Component#1 5
+    400016: Component#2
+    400018: Component#2 1
+    400020: Component#2 2
+    400022: Component#2 3
+    400024: Component#2 4
+    400026: Component#2 5
+    400028: Component#5
+    400030: Component#5 1
+    400032: Component#5 2
+    400034: Component#6
+    400036: Component#6 1
+    400038: Component#6 2
+    400040: Component#6 3
+    400042: Component#6 4
+    400044: Component#6 5
+    400046: Display 1
+    400048: Group 1
+    400050: Group 10
+    400052: Group 101
+    400054: Group 103
+    400056: Group 105
+    400058: Group 110
+    400060: Group 112
+    400062: Group 114
+    400064: Group 116
+    400066: Group 118
+    400068: Group 12
+    400070: Group 120
+    400072: Group 122
+    400074: Group 125
+    400076: Group 127
+    400078: Group 129
+    400080: Group 131
+    400082: Group 136
+    400084: Group 138
+    400086: Group 14
+    400088: Group 140
+    400090: Group 142
+    400092: Group 145
+    400094: Group 147
+    400096: Group 149
+    400098: Group 151
+    400100: Group 153
+    400102: Group 155
+    400104: Group 157
+    400106: Group 159
+    400108: Group 16
+    400110: Group 162
+    400112: Group 164
+    400114: Group 166
+    400116: Group 168
+    400118: Group 173
+    400120: Group 175
+    400122: Group 177
+    400124: Group 179
+    400126: Group 18
+    400128: Group 181
+    400130: Group 183
+    400132: Group 185
+    400134: Group 188
+    400136: Group 190
+    400138: Group 192
+    400140: Group 194
+    400142: Group 199
+    400144: Group 2
+    400146: Group 201
+    400148: Group 203
+    400150: Group 205
+    400152: Group 21
+    400154: Group 23
+    400156: Group 25
+    400158: Group 27
+    400160: Group 32
+    400162: Group 34
+    400164: Group 36
+    400166: Group 38
+    400168: Group 4
+    400170: Group 40
+    400172: Group 42
+    400174: Group 44
+    400176: Group 47
+    400178: Group 49
+    400180: Group 51
+    400182: Group 53
+    400184: Group 58
+    400186: Group 6
+    400188: Group 60
+    400190: Group 62
+    400192: Group 64
+    400194: Group 73
+    400196: Group 8
+    400198: Group 82
+    400200: Group 84
+    400202: Group 86
+    400204: Group 88
+    400206: Group 90
+    400208: Group 92
+    400210: Group 94
+    400212: Group 96
+    400214: Group 99
+    400216: Group#21
+    400218: Group#21 1
+    400220: Group#21 2
+    400222: Heavy_Viper_concept
+    400224: SimpleDome02
+    400226: ske8C
+    400228: ske8C 1
+    400230: ske8C 2
+    400232: //RootNode
+    2300000: angle ofattack gauge generic
+    2300002: Component#6
+    2300004: Component#6 1
+    2300006: Component#6 2
+    2300008: Component#6 3
+    2300010: Component#6 4
+    2300012: Component#6 5
+    2300014: Display 1
+    2300016: Group 10
+    2300018: Group 101
+    2300020: Group 103
+    2300022: Group 105
+    2300024: Group 110
+    2300026: Group 112
+    2300028: Group 114
+    2300030: Group 116
+    2300032: Group 118
+    2300034: Group 12
+    2300036: Group 120
+    2300038: Group 122
+    2300040: Group 125
+    2300042: Group 127
+    2300044: Group 129
+    2300046: Group 131
+    2300048: Group 136
+    2300050: Group 138
+    2300052: Group 14
+    2300054: Group 140
+    2300056: Group 142
+    2300058: Group 147
+    2300060: Group 149
+    2300062: Group 151
+    2300064: Group 153
+    2300066: Group 155
+    2300068: Group 157
+    2300070: Group 159
+    2300072: Group 16
+    2300074: Group 162
+    2300076: Group 164
+    2300078: Group 166
+    2300080: Group 168
+    2300082: Group 173
+    2300084: Group 175
+    2300086: Group 177
+    2300088: Group 179
+    2300090: Group 18
+    2300092: Group 181
+    2300094: Group 183
+    2300096: Group 185
+    2300098: Group 188
+    2300100: Group 190
+    2300102: Group 192
+    2300104: Group 194
+    2300106: Group 199
+    2300108: Group 201
+    2300110: Group 203
+    2300112: Group 205
+    2300114: Group 21
+    2300116: Group 23
+    2300118: Group 25
+    2300120: Group 27
+    2300122: Group 32
+    2300124: Group 34
+    2300126: Group 36
+    2300128: Group 38
+    2300130: Group 40
+    2300132: Group 42
+    2300134: Group 44
+    2300136: Group 47
+    2300138: Group 49
+    2300140: Group 51
+    2300142: Group 53
+    2300144: Group 58
+    2300146: Group 6
+    2300148: Group 60
+    2300150: Group 62
+    2300152: Group 64
+    2300154: Group 73
+    2300156: Group 8
+    2300158: Group 84
+    2300160: Group 86
+    2300162: Group 88
+    2300164: Group 90
+    2300166: Group 92
+    2300168: Group 94
+    2300170: Group 96
+    2300172: Group 99
+    2300174: Group#21
+    2300176: Group#21 1
+    2300178: Group#21 2
+    2300180: SimpleDome02
+    3300000: angle ofattack gauge generic
+    3300002: Component#6
+    3300004: Component#6 1
+    3300006: Component#6 2
+    3300008: Component#6 3
+    3300010: Component#6 4
+    3300012: Component#6 5
+    3300014: Display 1
+    3300016: Group 10
+    3300018: Group 101
+    3300020: Group 103
+    3300022: Group 105
+    3300024: Group 110
+    3300026: Group 112
+    3300028: Group 114
+    3300030: Group 116
+    3300032: Group 118
+    3300034: Group 12
+    3300036: Group 120
+    3300038: Group 122
+    3300040: Group 125
+    3300042: Group 127
+    3300044: Group 129
+    3300046: Group 131
+    3300048: Group 136
+    3300050: Group 138
+    3300052: Group 14
+    3300054: Group 140
+    3300056: Group 142
+    3300058: Group 147
+    3300060: Group 149
+    3300062: Group 151
+    3300064: Group 153
+    3300066: Group 155
+    3300068: Group 157
+    3300070: Group 159
+    3300072: Group 16
+    3300074: Group 162
+    3300076: Group 164
+    3300078: Group 166
+    3300080: Group 168
+    3300082: Group 173
+    3300084: Group 175
+    3300086: Group 177
+    3300088: Group 179
+    3300090: Group 18
+    3300092: Group 181
+    3300094: Group 183
+    3300096: Group 185
+    3300098: Group 188
+    3300100: Group 190
+    3300102: Group 192
+    3300104: Group 194
+    3300106: Group 199
+    3300108: Group 201
+    3300110: Group 203
+    3300112: Group 205
+    3300114: Group 21
+    3300116: Group 23
+    3300118: Group 25
+    3300120: Group 27
+    3300122: Group 32
+    3300124: Group 34
+    3300126: Group 36
+    3300128: Group 38
+    3300130: Group 40
+    3300132: Group 42
+    3300134: Group 44
+    3300136: Group 47
+    3300138: Group 49
+    3300140: Group 51
+    3300142: Group 53
+    3300144: Group 58
+    3300146: Group 6
+    3300148: Group 60
+    3300150: Group 62
+    3300152: Group 64
+    3300154: Group 73
+    3300156: Group 8
+    3300158: Group 84
+    3300160: Group 86
+    3300162: Group 88
+    3300164: Group 90
+    3300166: Group 92
+    3300168: Group 94
+    3300170: Group 96
+    3300172: Group 99
+    3300174: Group#21
+    3300176: Group#21 1
+    3300178: Group#21 2
+    3300180: SimpleDome02
+    4300000: Mesh Group 6
+    4300002: Mesh Group 8
+    4300004: Mesh Group 10
+    4300006: Mesh Group 12
+    4300008: Mesh Group 14
+    4300010: Mesh Group 16
+    4300012: Mesh Group 18
+    4300014: Mesh Group 21
+    4300016: Mesh Group 23
+    4300018: Mesh Group 25
+    4300020: Mesh Group 27
+    4300022: Mesh Component#6
+    4300024: Mesh Group#21
+    4300026: Mesh Group 73
+    4300028: Mesh SimpleDome02
+    4300030: Mesh Display 1
+    4300032: Mesh angle ofattack gauge generic
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
