@@ -72,6 +72,10 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardAndroidDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
+     <Compile Include="Assets\Models\astroObj\JumpAnimationScript.cs" />
+     <Compile Include="Assets\Pathing\MathUtils.cs" />
+     <Compile Include="Assets\Pathing\SplineController.cs" />
+     <Compile Include="Assets\Pathing\SplineInterpolator.cs" />
      <Compile Include="Assets\Random Distribution Tool\RandomDistributionScript.cs" />
      <Compile Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\BlurEffect.cs" />
      <Compile Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\ColorCorrectionEffect.cs" />
