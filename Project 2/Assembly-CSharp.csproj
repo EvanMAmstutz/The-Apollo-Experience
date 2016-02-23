@@ -73,10 +73,10 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
      <Compile Include="Assets\Models\astroObj\JumpAnimationScript.cs" />
+     <Compile Include="Assets\Models\astroObj\JumpMovementScript.cs" />
      <Compile Include="Assets\Pathing\MathUtils.cs" />
      <Compile Include="Assets\Pathing\SplineController.cs" />
      <Compile Include="Assets\Pathing\SplineInterpolator.cs" />
-     <Compile Include="Assets\Random Distribution Tool\RandomDistributionScript.cs" />
      <Compile Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\BlurEffect.cs" />
      <Compile Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\ColorCorrectionEffect.cs" />
      <Compile Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\ContrastStretchEffect.cs" />
@@ -131,7 +131,6 @@
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlobalFog.shader" />
-     <None Include="Assets\Random Distribution Tool\Demo Assets\Materials\Shader\AlphaTest-DiffuseVertexColor.shader" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\Bokeh34.shader" />
