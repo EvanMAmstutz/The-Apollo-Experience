@@ -687,6 +687,142 @@ ModelImporter:
     4300266: polySurfa2
     4300268: polySurfa3
     4300270: polySurfa4
+    6400000: group13 10
+    6400002: group13 11
+    6400004: group13 12
+    6400006: group13 13
+    6400008: group13 14
+    6400010: group13 g1
+    6400012: group13 g2
+    6400014: group13 g3
+    6400016: group13 g4
+    6400018: group13 g5
+    6400020: group13 g6
+    6400022: group13 g7
+    6400024: group13 g8
+    6400026: group13 g9
+    6400028: group13 gr
+    6400030: group13 p1
+    6400032: group13 p2
+    6400034: group13 pC
+    6400036: group31 10
+    6400038: group31 11
+    6400040: group31 12
+    6400042: group31 13
+    6400044: group31 14
+    6400046: group31 15
+    6400048: group31 16
+    6400050: group31 17
+    6400052: group31 18
+    6400054: group31 19
+    6400056: group31 20
+    6400058: group31 21
+    6400060: group31 22
+    6400062: group31 g1
+    6400064: group31 g2
+    6400066: group31 g3
+    6400068: group31 g4
+    6400070: group31 g5
+    6400072: group31 g6
+    6400074: group31 g7
+    6400076: group31 g8
+    6400078: group31 g9
+    6400080: group31 gr
+    6400082: group32 gr
+    6400084: group51 10
+    6400086: group51 11
+    6400088: group51 12
+    6400090: group51 13
+    6400092: group51 14
+    6400094: group51 15
+    6400096: group51 16
+    6400098: group51 17
+    6400100: group51 18
+    6400102: group51 19
+    6400104: group51 20
+    6400106: group51 21
+    6400108: group51 g1
+    6400110: group51 g2
+    6400112: group51 g3
+    6400114: group51 g4
+    6400116: group51 g5
+    6400118: group51 g6
+    6400120: group51 g7
+    6400122: group51 g8
+    6400124: group51 g9
+    6400126: group51 gr
+    6400128: group51 p1
+    6400130: group51 po
+    6400132: group51 pS
+    6400134: group61 p1
+    6400136: group61 p2
+    6400138: group61 pS
+    6400140: group73 g1
+    6400142: group73 g2
+    6400144: group73 gr
+    6400146: group73 p1
+    6400148: group73 p2
+    6400150: group73 p3
+    6400152: group73 pC
+    6400154: group74 g1
+    6400156: group74 g2
+    6400158: group74 gr
+    6400160: group74 p1
+    6400162: group74 p2
+    6400164: group74 p3
+    6400166: group74 pC
+    6400168: group75 10
+    6400170: group75 11
+    6400172: group75 g1
+    6400174: group75 g2
+    6400176: group75 g3
+    6400178: group75 gr
+    6400180: group75 p1
+    6400182: group75 p2
+    6400184: group75 p3
+    6400186: group75 p4
+    6400188: group75 p5
+    6400190: group75 p6
+    6400192: group75 p7
+    6400194: group75 p8
+    6400196: group75 p9
+    6400198: group75 pC
+    6400200: group75 pP
+    6400202: pCone6
+    6400204: pCone7
+    6400206: pCube2
+    6400208: pCube27
+    6400210: pCube28
+    6400212: pCube29
+    6400214: pCube3
+    6400216: pCylinde10
+    6400218: pCylinde11
+    6400220: pCylinder1
+    6400222: pCylinder2
+    6400224: pCylinder3
+    6400226: pCylinder4
+    6400228: pCylinder5
+    6400230: pCylinder6
+    6400232: pCylinder7
+    6400234: pCylinder8
+    6400236: pCylinder9
+    6400238: polySurfa1
+    6400240: polySurfa2
+    6400242: polySurfa3
+    6400244: polySurfa4
+    6400246: polySurfac
+    6400248: pPipe1
+    6400250: pPipe2
+    6400252: pPlane1
+    6400254: pPlane2
+    6400256: pSphere20
+    6400258: pSphere26
+    6400260: pSphere27
+    6400262: pSphere28
+    6400264: pSphere29
+    6400266: pSphere30
+    6400268: pSphere4 p
+    6400270: pSphere5 p
   materials:
     importMaterials: 1
     materialName: 0
@@ -713,7 +849,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
