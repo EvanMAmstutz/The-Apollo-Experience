@@ -20,7 +20,7 @@ public class JumpAnimationScript : MonoBehaviour {
 		myAnimator = GetComponent<Animator> ();
 		jump = false;
 
-		myAnimator.SetFloat ("VSpeed", 1);
+		myAnimator.SetFloat ("VSpeed", 1.0f);
 	}
 	
 	// Update is called once per frame
@@ -53,7 +53,7 @@ public class JumpAnimationScript : MonoBehaviour {
 //		}
 //
 
-		myAnimator.SetFloat ("VSpeed", 1);
+		myAnimator.SetFloat ("VSpeed", 1.0f);
 
 	}
 }
