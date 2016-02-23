@@ -1,0 +1,128 @@
+fileFormatVersion: 2
+guid: 0eb85dda6b2714224b9b04eb09f7ca48
+timeCreated: 1456187307
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 4302e0a5492f892e87bb88085c793412
+  longitude: -105.242139
+  latitude: 40.018309
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 12.1757965, y: 5.6673083, z: -7.594757}
+      lookAt: {x: 4.919478, y: 2.039149, z: -0.33843818}
+      up: {x: -0.23570226, y: 0.94280905, z: 0.23570226}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: e38f-dacc-0623-8b3b
+    100004: FERMUAR-ZIPPER
+    100006: FERMUAR-ZIPPER 1
+    100008: FERMUAR-ZIPPER 2
+    100010: KOL SAAT?-WATCH
+    100012: SpaceSuitHelmet
+    100014: SpaceSuitMaleBody
+    100016: SpaceSuitVisor
+    400000: //RootNode
+    400002: e38f-dacc-0623-8b3b
+    400004: FERMUAR-ZIPPER
+    400006: FERMUAR-ZIPPER 1
+    400008: FERMUAR-ZIPPER 2
+    400010: KOL SAAT?-WATCH
+    400012: SpaceSuitHelmet
+    400014: SpaceSuitMaleBody
+    400016: SpaceSuitVisor
+    2300000: FERMUAR-ZIPPER
+    2300002: FERMUAR-ZIPPER 1
+    2300004: FERMUAR-ZIPPER 2
+    2300006: KOL SAAT?-WATCH
+    2300008: SpaceSuitHelmet
+    2300010: SpaceSuitMaleBody
+    2300012: SpaceSuitVisor
+    3300000: FERMUAR-ZIPPER
+    3300002: FERMUAR-ZIPPER 1
+    3300004: FERMUAR-ZIPPER 2
+    3300006: KOL SAAT?-WATCH
+    3300008: SpaceSuitHelmet
+    3300010: SpaceSuitMaleBody
+    3300012: SpaceSuitVisor
+    4300000: Mesh SpaceSuitMaleBody
+    4300002: Mesh SpaceSuitVisor
+    4300004: Mesh SpaceSuitHelmet
+    4300006: Mesh FERMUAR-ZIPPER
+    4300008: Mesh KOL SAAT?-WATCH
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

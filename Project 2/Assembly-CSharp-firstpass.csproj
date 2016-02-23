@@ -147,6 +147,7 @@
      <None Include="Assets\Rocks and Boulders 2\Shaders\Blend SM3.shader" />
      <None Include="Assets\Rocks and Boulders 2\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Tonemapper.shader" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+     <None Include="Assets\PBS Materials Variety Pack\readme.txt" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Rocks Pack\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\Rocks and Boulders 2\Shaders\Desaturate\DesaturateEffect.shader" />
