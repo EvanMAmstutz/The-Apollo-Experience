@@ -13,16 +13,22 @@ The sample collection system was created using mesh colliders placed on the rock
 
 A picture can be taken by selecting the proper button on the controller, thus playing a camera click audio file. The final action is putting the American flag on the moon. This was done by exploiting the user being in first person and hiding the flag directly above the user's camera and turning off the mesh render associated with the flag asset. When the player gets within a certain range of the planting point, the mesh render is turned on and an animation is activated lowering the flag asset to the ground and detaching it from the parent, which is the First Person Controller.
 
+###Learning Objectives
+* Not being able to see stars at the Apollo 11 landing site
+* Activities the astronauts did on the Moon
+* How bright the sun is without Earth's atmosphere
+* How light objects are with the Moon's gravity
+* Lack of sound on the Moon
+* The limited technology that was at the astronaut's disposal, as displayed by the radio quality
+
 ### Game Screenshots
+
 
 ### Gameplay Video
 
 
 ### Authors and Contributors
 Evan Amstutz (@EvanMAmstutz), Erian Vazquez (@ErianVazquez), and Patrick Poplowska (@ppoplawska) worked on this project in Spring 2016 for the University of Florida's Virtual Reality class taught by Benjamin Lok.
-
-###Website
-http://evanmamstutz.github.io/The-Apollo-Experience/
 
 ### References
 We used some models from different developers in our experience. Those models are listed below.
