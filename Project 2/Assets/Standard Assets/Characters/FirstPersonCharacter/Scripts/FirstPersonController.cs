@@ -78,6 +78,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
             {
                 m_MoveDir.y = 0f;
+
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
@@ -95,9 +96,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void FixedUpdate()
         {
             float speed;
+            bool isMoving = false;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+
+            if(m_Input.x > 0 || m_Input.x < 0 || m_Input.y < 0 || m_Input.y > 0){
+
+                isMoving = true;
+            }
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
@@ -113,10 +120,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_MoveDir.y = -m_StickToGroundForce;
 
-                if (m_Jump)
+                if (isMoving)
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
+                    isMoving = false;
                     m_Jump = false;
                     m_Jumping = true;
                 }
@@ -124,6 +132,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else
             {
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+
+
             }
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
