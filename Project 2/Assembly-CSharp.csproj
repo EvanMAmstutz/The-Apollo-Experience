@@ -73,7 +73,6 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\CardboardiOSDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
      <Compile Include="Assets\Models\astroObj\JumpAnimationScript.cs" />
-     <Compile Include="Assets\Models\astroObj\JumpMovementScript.cs" />
      <Compile Include="Assets\Pathing\MathUtils.cs" />
      <Compile Include="Assets\Pathing\SplineController.cs" />
      <Compile Include="Assets\Pathing\SplineInterpolator.cs" />
