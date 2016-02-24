@@ -9,7 +9,10 @@ We wanted to find a moment in history with a lot of significance, which also has
 ### Technical Explanation
 Our project consists of movement around the environment using a hopping motion for both the user's character and the AI character. The user's character hopping movement was created by manipulating the First Person Controller script so, as long as the user is grounded, a directional movement with the controller results in a hopping motion. For the AI character, the hopping motion was achieved by using Maximo to apply the animation to the AI asset. This was then exported to Unity where the animation was manipulated to include motion along the x-axis. 
 
-The sample collection system was created using mesh colliders placed on the rock assets and making the user character asset a rigid body object. A collision with the rock asset triggers a an action which picks up the rock. 
+The sample collection system was created using mesh colliders placed on the rock assets and making the user character asset a rigid body object. A collision with the rock asset triggers an action which picks up the rock, destroying the asset and setting a boolean flag to true. When the sample is brought back to the lander asset, a collision is activated and the boolean flag is set to false. 
+
+A picture can be taken by selecting the proper button on the controller, thus playing a camera click audio file. The final action is putting the American flag on the moon. This was done by exploiting the user being in first person and hiding the flag directly above the user's camera and turning off the mesh render associated with the flag asset. When the player gets within a certain range of the planting point, the mesh render is turned on and an animation is activated lowering the flag asset to the ground and detaching it from the parent, which is the First Person Controller.
+
 ### Game Screenshots
 
 ### Gameplay Video
