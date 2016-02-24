@@ -51,7 +51,7 @@
 <h3>
 <a id="technical-explanation" class="anchor" href="#technical-explanation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Technical Explanation</h3>
 
-<p>Our project consists of movement around the environment using a hopping motion for both the user's character and the AI character. The user's character hopping movement was created by manipulating the First Person Controller script so, as long as the user is grounded, a directional movement with the controller results in a hopping motion. For the AI character, the hopping motion was achieved by using Maximo to apply the animation to the AI asset. This was then exported to Unity where the animation was manipulated to include motion along the x-axis. </p>
+<p>Our project consists of movement around the environment using a hopping motion for both the user's character and the AI character. The user's character hopping movement was created by manipulating the First Person Controller script so, as long as the user is grounded, a directional movement with the controller results in a hopping motion. For the AI character, the hopping motion was achieved by using Mixamo to apply the animation to the AI asset. This was then exported to Unity where the animation was manipulated to include motion along the x-axis. </p>
 
 <p>The sample collection system was created using mesh colliders placed on the rock assets and making the user character asset a rigid body object. A collision with the rock asset triggers an action which picks up the rock, destroying the asset and setting a boolean flag to true. When the sample is brought back to the lander asset, a collision is activated and the boolean flag is set to false. </p>
 
@@ -71,7 +71,22 @@
 <h3>
 <a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
 
-<p>We used some models from different developers in our experience. Those models are listed below.</p>
+<p>We used some models from different developers in our experience. Those models are listed below.
+<a href="http://nasa3d.arc.nasa.gov/models">Lander and lunar astronaut suit</a></p>
+
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/6947">Lunar rocks</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=Wt7b8RyRfWw">Breathing sound effect</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=mBbXPB_6SWs">Maximo Tutorial</a></p>
+
+<p><a href="https://3dwarehouse.sketchup.com/model.html?id=c34b64f276c670f349bb7846d039ee8">American Flag</a></p>
+
+<p><a href="http://forum.unity3d.com/threads/smooth-look-at.26141/">Smooth rotation code</a></p>
+
+<p><a href="https://3dwarehouse.sketchup.com/model.html?id=ubdd49a99-679f-460e-844e-5dcbdca48a85">User helmet</a></p>
+
+<p><a href="https://www.assetstore.unity3d.com/en/#!/content/35818">Lunar landscape</a></p>
       </section>
 
     </div>
