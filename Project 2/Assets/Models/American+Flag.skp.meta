@@ -1,0 +1,120 @@
+fileFormatVersion: 2
+guid: ff9e96286123a47d88d57464d0113cfd
+timeCreated: 1456292700
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b000000
+  assetHash:
+    serializedVersion: 2
+    Hash: b677427751f17e5c34985aee81eb82b9
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -0.20241588, y: 2.6434197, z: 12.042645}
+      lookAt: {x: -0.58399796, y: 3.5237484, z: 0.03495955}
+      up: {x: 0.0023212016, y: 0.9973261, z: 0.07304394}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: flagfhorri
+    100004: flagfjoint
+    100006: flagfront
+    100008: flagfront0
+    100010: Flagfverti
+    100012: skp328
+    400000: //RootNode
+    400002: flagfhorri
+    400004: flagfjoint
+    400006: flagfront
+    400008: flagfront0
+    400010: Flagfverti
+    400012: skp328
+    2300000: flagfhorri
+    2300002: flagfjoint
+    2300004: flagfront
+    2300006: flagfront0
+    2300008: Flagfverti
+    3300000: flagfhorri
+    3300002: flagfjoint
+    3300004: flagfront
+    3300006: flagfront0
+    3300008: Flagfverti
+    4300000: Mesh Flagfverti
+    4300002: Mesh flagfhorri
+    4300004: Mesh flagfjoint
+    4300006: Mesh flagfront
+    4300008: Mesh flagfront0
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
