@@ -4,10 +4,10 @@ using System.Collections;
 
 public class GazeTest : MonoBehaviour {
 
-	public Material mat1;
-	public Material mat2;
-	public GameObject gazeCube;
-	private int currentMaterial = 0;
+
+	// This is written from the perspective of the rock
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,18 +19,10 @@ public class GazeTest : MonoBehaviour {
 
 	}
 
-	public void stareAtCube(){
-		switch(currentMaterial){
-				case(0):
-					gazeCube.GetComponent<Renderer>().material = mat2;
-					currentMaterial++;
-					break;
-				case(1):
-					gazeCube.GetComponent<Renderer>().material = mat1;
-					currentMaterial = 0;
-					break;
-
-		}
+	public void destroyRock(){
+			Destroy(gameObject);
 
 	}
+
+
 }

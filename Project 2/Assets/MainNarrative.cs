@@ -3,11 +3,14 @@ using System.Collections;
 
 public class MainNarrative : MonoBehaviour {
 	public bool experienceHasStarted = false;
-	private AudioSource[] intialAudio;
+	public bool weDontSeeStars = false;
+	public bool weDontSeeStarsHasPlayed = false;
+	public AudioSource intialAudio;
+	public AudioSource weDontSeeStarsAudio;
 
 	// Use this for initialization
 	void Start () {
-		intialAudio = GetComponents<AudioSource>();
+
 
 	}
 
@@ -15,7 +18,16 @@ public class MainNarrative : MonoBehaviour {
 	void Update () {
 		if(Input.GetButton("Fire1") && !experienceHasStarted){
 			experienceHasStarted = true;
-			intialAudio[1].Play();
+			intialAudio.Play();
+			weDontSeeStars = true;
+			
+
+		}
+
+		if(weDontSeeStars && !intialAudio.isPlaying && !weDontSeeStarsHasPlayed){
+			weDontSeeStarsAudio.Play();
+			weDontSeeStarsHasPlayed = true;
+
 
 		}
 	}
