@@ -136,8 +136,9 @@ public class SplineController : MonoBehaviour
 		}
 	}
 
-	public void setSplineObject(GameObject sr)
+	public void setSplineObject(GameObject sr, float dur)
 	{
+		Duration = dur;
 		SplineRoot = sr;
 		mTransforms = GetTransforms();
 	}

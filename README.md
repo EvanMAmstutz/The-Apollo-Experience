@@ -1,6 +1,2 @@
 # VR-Project-2
-Project two of VR Class
-<<<<<<< HEAD
-=======
-readme to be entered later
->>>>>>> origin/master
+Website can be found at http://evanmamstutz.github.io/VR-Project-2 which includes details of the project.

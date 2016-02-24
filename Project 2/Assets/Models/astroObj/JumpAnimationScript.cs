@@ -4,7 +4,10 @@ using System.Collections;
 public class JumpAnimationScript : MonoBehaviour {
 
 	public GameObject[] SplineRootGroup;
+	public float[] SplineRootDurationGroup;
 	SplineController otherScript;
+
+	public int state;
 
 	private Animator myAnimator;
 
@@ -14,46 +17,60 @@ public class JumpAnimationScript : MonoBehaviour {
 	void Start () {
 
 		this.otherScript = this.GetComponent<SplineController>();
+		state = -1;
 
 		print (otherScript.SplineRoot);
 
 		myAnimator = GetComponent<Animator> ();
-		jump = false;
-
 		myAnimator.SetFloat ("VSpeed", 1.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		int i = 0;
-		if(Input.GetKeyDown (KeyCode.Alpha1)){
-			otherScript.setSplineObject (SplineRootGroup [0]);
-			print (otherScript.SplineRoot);
-		} else if(Input.GetKeyDown (KeyCode.Alpha2)){
-			otherScript.setSplineObject (SplineRootGroup [1]);
-			print (otherScript.SplineRoot);
-		} else if(Input.GetKeyDown (KeyCode.Alpha3)){
-			otherScript.setSplineObject (SplineRootGroup [2]);
-			print (otherScript.SplineRoot);
-		}
-
-		if(Input.GetKeyDown (KeyCode.Alpha4)){
+		if(state == 0){
+//			otherScript.setSplineObject (SplineRootGroup [0], SplineRootDurationGroup[0]);
 			otherScript.FollowSpline ();
+			print (otherScript.SplineRoot);
+			myAnimator.SetFloat ("VSpeed", 1.0f);
+		} else if(state == 1){
+			//this.setPosition Make sure he doesn't sink
+			myAnimator.SetFloat ("VSpeed", 0.0f);
+		} else if(state == 2){
+			otherScript.setSplineObject (SplineRootGroup [1], SplineRootDurationGroup[1]);
+			otherScript.FollowSpline ();
+			print (otherScript.SplineRoot);
+			myAnimator.SetFloat ("VSpeed", 1.0f);
+		} else if(state == 3){
+			//this.setPosition Make sure he doesn't sink
+			myAnimator.SetFloat ("VSpeed", 0.0f);
+		} else if(state == 4){
+			otherScript.setSplineObject (SplineRootGroup [2], SplineRootDurationGroup[2]);
+			otherScript.FollowSpline ();
+			print (otherScript.SplineRoot);
+			myAnimator.SetFloat ("VSpeed", 1.0f);
+		} else if(state == 5){
+			//this.setPosition Make sure he doesn't sink
+			myAnimator.SetFloat ("VSpeed", 0.0f);
+		} else if(state == 6){
+			otherScript.setSplineObject (SplineRootGroup [3], SplineRootDurationGroup[3]);
+			otherScript.FollowSpline ();
+			print (otherScript.SplineRoot);
+			myAnimator.SetFloat ("VSpeed", 1.0f);
+		} else if(state == 7){
+			//this.setPosition Make sure he doesn't sink
+			myAnimator.SetFloat ("VSpeed", 0.0f);
+		} else if(state == 8){
+			otherScript.setSplineObject (SplineRootGroup [4], SplineRootDurationGroup[4]);
+			otherScript.FollowSpline ();
+			print (otherScript.SplineRoot);
+			myAnimator.SetFloat ("VSpeed", 1.0f);
+		} else if(state == 9){
+			//this.setPosition Make sure he doesn't sink
+			myAnimator.SetFloat ("VSpeed", 0.0f);
 		}
-//
-//		if(Input.GetKeyDown (KeyCode.W) == true){
-//			jump = !jump;
-//		}
-//
-//		if (jump) {
-//			myAnimator.SetFloat ("VSpeed", 1.0f);
-//		} else {
-//			myAnimator.SetFloat ("VSpeed", 0.0f);
-//		}
-//
 
-		myAnimator.SetFloat ("VSpeed", 1.0f);
+
 
 	}
 }
