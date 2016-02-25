@@ -52,3 +52,5 @@ We used some models from different developers in our experience. Those models ar
 [User helmet](https://3dwarehouse.sketchup.com/model.html?id=ubdd49a99-679f-460e-844e-5dcbdca48a85)
 
 [Lunar landscape](https://www.assetstore.unity3d.com/en/#!/content/35818)
+
+[Vector3 Lerp](http://docs.unity3d.com/ScriptReference/Vector3.Lerp.html)
