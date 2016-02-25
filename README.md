@@ -21,9 +21,6 @@ A picture can be taken by selecting the proper button on the controller, thus pl
 * Lack of sound on the Moon
 * The limited technology that was at the astronaut's disposal, as displayed by the radio quality
 
-### Game Screenshots
-
-
 ### Gameplay Video
 
 
