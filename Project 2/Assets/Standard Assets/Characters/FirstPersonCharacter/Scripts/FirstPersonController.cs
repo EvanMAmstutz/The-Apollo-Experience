@@ -27,7 +27,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
-
+        
+        
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -41,6 +42,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public bool intialMovement;
+        public int speedReductionFactor;
+        
+        
 
         // Use this for initialization
         private void Start()
@@ -55,6 +60,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            intialMovement = true;
+            speedReductionFactor = 2;
+            
         }
 
 
@@ -97,6 +105,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             float speed;
             bool isMoving = false;
+            
+            speedReductionFactor = 2;
+            
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
             Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
@@ -111,16 +122,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
             Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
                                m_CharacterController.height/2f, ~0, QueryTriggerInteraction.Ignore);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
+            
+            if(intialMovement){
+                
+                m_MoveDir.x = desiredMove.x*(speed/speedReductionFactor);
+                m_MoveDir.z = desiredMove.z*(speed/speedReductionFactor);
 
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
-
+                
+            }else{
+                
+                m_MoveDir.x = desiredMove.x*(speed);
+                m_MoveDir.z = desiredMove.z*(speed);
+                
+            }
+                
+           
 
             if (m_CharacterController.isGrounded)
             {
                 m_MoveDir.y = -m_StickToGroundForce;
 
-                if (isMoving)
+                if (isMoving && !intialMovement)
                 {
                     m_MoveDir.y = m_JumpSpeed;
                     PlayJumpSound();
@@ -265,5 +287,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
+        
+        
     }
 }

@@ -6,6 +6,7 @@ public class GoneTooFar : MonoBehaviour {
     public AudioSource goneTooFarAudio;
     public GameObject referencePointObject;
     public bool reachedMaxedDistance = false;
+    public float maxDistance;
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +17,8 @@ public class GoneTooFar : MonoBehaviour {
 	void Update () {
         
         float distance = Vector3.Distance(gameObject.transform.position, referencePointObject.transform.position);
-        print(distance);
-        if(distance > 60.0f && !reachedMaxedDistance ){
+        //print(distance);
+        if(distance > maxDistance && !reachedMaxedDistance ){
             goneTooFarAudio.Play();
             reachedMaxedDistance = true;
             
